@@ -1,0 +1,11 @@
+
+<test name="AddNewProductsTests" preserve-order="true">
+    <classes>
+        <class name="AddNewProductsTests">
+            <methods>
+                <include name="openProductsPage" />
+                <include name="addNewProducts" />
+            </methods>
+        </class>
+    </classes>
+</test>
