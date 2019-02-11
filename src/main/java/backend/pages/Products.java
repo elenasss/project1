@@ -37,8 +37,7 @@ public class Products {
                                       String price, String outOfStock, String weight, String weightCategory, String image) throws AWTException, InterruptedException {
 
         JavascriptExecutor jse = (JavascriptExecutor) Browser.driver;
-
-//        Browser.driver.findElement(By.cssSelector("i.fa-plus")).click();
+        
         FindElement.byCssSelector("i.fa-plus");
         Browser.driver.findElement(By.id("input-name1")).sendKeys(name);
         Browser.driver.findElement(By.cssSelector(".note-editable")).sendKeys(description);
