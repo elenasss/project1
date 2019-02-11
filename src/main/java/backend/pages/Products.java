@@ -1,10 +1,14 @@
 package backend.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import utils.Browser;
+
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -12,8 +16,8 @@ import static org.testng.Assert.assertTrue;
 public class Products {
 
     public static void openProductsPage() {
-        Browser.driver.findElement(By.id("menu-catalog")).click();
-        Browser.driver.findElement(By.xpath("//a[text()='Products']")).click();
+        FindElement.byId("menu-catalog");
+        FindElement.byXPathSelector("//a[text()='Products']");
         assertEquals(Browser.driver.getTitle(), "Products", "You are not on the Products page");
     }
 
@@ -30,11 +34,12 @@ public class Products {
      * @param image          the image to upload
      */
     public static void addNewProducts(String name, String description, String tag, String model,
-                                      String price,String outOfStock, String weight, String weightCategory, String image) {
+                                      String price, String outOfStock, String weight, String weightCategory, String image) throws AWTException, InterruptedException {
 
         JavascriptExecutor jse = (JavascriptExecutor) Browser.driver;
 
-        Browser.driver.findElement(By.cssSelector("i.fa-plus")).click();
+//        Browser.driver.findElement(By.cssSelector("i.fa-plus")).click();
+        FindElement.byCssSelector("i.fa-plus");
         Browser.driver.findElement(By.id("input-name1")).sendKeys(name);
         Browser.driver.findElement(By.cssSelector(".note-editable")).sendKeys(description);
         jse.executeScript("scroll(0, 250);");
@@ -54,12 +59,31 @@ public class Products {
         jse.executeScript("scroll(0, 500);");
 
         Browser.driver.findElement(By.partialLinkText("Image")).click();
-        Browser.driver.findElement(By.cssSelector(".img-thumbnail")).click();
-        Browser.driver.findElement(By.cssSelector(".button-image")).click();
-        WebElement UploadImg = Browser.driver.findElement(By.id("fa-upload"));
-        UploadImg.sendKeys("D:\\QA\\Automation\\project1\\images\\" + image);
+        FindElement.byId(".img-thumbnail");
+//       Browser.driver.findElement(By.cssSelector(".img-thumbnail")).click();
+        FindElement.byCssSelector("#button-image");
+//       Browser.driver.findElement(By.cssSelector("#button-image")).click();
+//       Browser.driver.findElement(By.id("button-upload")).click();
+        FindElement.byId("button-upload");
 
-        Browser.driver.findElement(By.cssSelector("i.fa-save")).click();
+        StringSelection ss = new StringSelection("D:\\QA\\Automation\\project1\\images\\1.JPG");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        Thread.sleep(5000);
+
+        Alert alert = Browser.driver.switchTo().alert();
+        alert.accept();
+        FindElement.byXPathSelector("//img[@title='1.jpg']");
+        FindElement.byCssSelector("i.fa-save");
     }
 
 

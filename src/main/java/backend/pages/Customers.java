@@ -5,49 +5,33 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import utils.Browser;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class Customers {
-    private static List<Customer> customers;
-
-    public Customers(List<Customer> customers) {
-        this.customers = new ArrayList<>();
-    }
 
     /**
      * Opens the customer groups page
      */
     public static void openCustomerGroupsPage() {
-        Browser.driver.findElement(By.id("menu-customer")).click();
-        Browser.driver.findElement(By.xpath("//a[text()='Customer Groups']")).click();
+        FindElement.byId("menu-customer");
+        FindElement.byXPathSelector("//a[text()='Customer Groups']");
         assertEquals(Browser.driver.getTitle(), "Customer Groups", "You are not on the Customer Groups page");
     }
 
-    /**
-     * Opens the page Customers
-     */
-    public static void openCustomersPage() {
-        Browser.driver.findElement(By.id("menu-customer")).click();
-        Browser.driver.findElement(By.xpath("//li[@id='menu-customer']//a[text()='Customers']")).click();
-        assertEquals(Browser.driver.getTitle(), "Customers", "You are not on the Customers page");
-    }
 
     /**
      * adds new customer group
      */
     public static void addNewCustomerGroup(String groupName, String description) {
-        Browser.driver.findElement(By.cssSelector("i.fa-plus")).click();
+        FindElement.byCssSelector("i.fa-plus");
         Browser.driver.findElement(By.cssSelector("div.input-group>input.form-control")).sendKeys(groupName);
         Browser.driver.findElement(By.id("input-description1")).sendKeys(description);
         WebElement approval = Browser.driver.findElement(By.xpath("//input[@value=0]"));
         if (!approval.isSelected()) {
             approval.click();
         }
-        Browser.driver.findElement(By.cssSelector("button.btn")).click();
+        FindElement.byCssSelector("button.btn");
     }
 
     /**
@@ -59,6 +43,15 @@ public class Customers {
     public static void verifyAddNewGroupFunction(String addedNewCustomerGroupName, String messageOnFailure) {
         String customerDetails = Browser.driver.findElement(By.cssSelector("tbody")).getText();
         assertTrue(customerDetails.contains(addedNewCustomerGroupName), messageOnFailure);
+    }
+
+    /**
+     * Opens the page Customers
+     */
+    public static void openCustomersPage() {
+        FindElement.byId("menu-customer");
+        FindElement.byXPathSelector("//a[text()='Customers']");
+        assertEquals(Browser.driver.getTitle(), "Customers", "You are not on the Customers page");
     }
 
     /**
@@ -75,7 +68,7 @@ public class Customers {
      */
     public static void addNewCustomers(String groupName, String firstName, String lastName, String email, String phoneNumber,
                                        String password, String confirmPassword, String newsletterOption, String statusOption) {
-        Browser.driver.findElement(By.cssSelector("i.fa-plus")).click();
+        FindElement.byCssSelector("i.fa-plus");
         Select customerGroup = new Select(Browser.driver.findElement(By.id("input-customer-group")));
         customerGroup.selectByVisibleText(groupName);
         Browser.driver.findElement(By.id("input-firstname")).sendKeys(firstName);
@@ -88,7 +81,7 @@ public class Customers {
         new Select(Browser.driver.findElement(By.id("input-newsletter"))).selectByVisibleText(newsletterOption);
         new Select(Browser.driver.findElement(By.id("input-status"))).selectByVisibleText(statusOption);
 
-        Browser.driver.findElement(By.cssSelector("i.fa-save")).click();
+        FindElement.byCssSelector("i.fa-save");
     }
 
 
@@ -99,19 +92,16 @@ public class Customers {
      * @param messageOnFailure             the message that will appear in the bug report in case of failure
      */
     public static void verifyAddNewCustomerFunction(String addedNewCustomerEmailAddress, String messageOnFailure) {
-
         if (Browser.driver.findElement(By.cssSelector(".alert-dismissible")).getText()
                 .contains("E-Mail Address is already registered!")) {
-            Browser.driver.findElement(By.cssSelector("i.fa-reply")).click();
-            assertTrue(!Browser.driver.findElement(By.cssSelector(".fa-list")).isDisplayed(), "E-Mail Address is already registered");
-
+            FindElement.byCssSelector("i.fa-reply");
+            assertTrue(!Browser.driver.findElement(By.cssSelector(".fa-list")).isDisplayed(),
+                    "E-Mail Address is already registered");
         } else {
             Browser.driver.findElement(By.id("input-email")).sendKeys(addedNewCustomerEmailAddress);
-            Browser.driver.findElement(By.id("button-filter")).click();
+            FindElement.byId("button-filter");
             String customerDetails = Browser.driver.findElement(By.cssSelector("tbody")).getText();
             assertTrue(customerDetails.contains(addedNewCustomerEmailAddress), messageOnFailure);
         }
     }
-
-
 }
