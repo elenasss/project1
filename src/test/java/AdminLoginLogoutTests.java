@@ -16,7 +16,7 @@ public class AdminLoginLogoutTests {
     @Test
     public void unsuccessfulLogin() {
         AdminLogin.open();
-        AdminLogin.login("admin", "parola");
+        AdminLogin.login("admin", "123456");
 
         AdminLogin.verifyLoginFormValidationMessage(
                 "No match for Username and/or Password.",
@@ -26,7 +26,7 @@ public class AdminLoginLogoutTests {
     @Test
     public void successfulLogin() {
         AdminLogin.open();
-        AdminLogin.login("admin", "parola123!");
+        AdminLogin.login("admin", "pass***");
         AdminDashboard.verifyUserFullName("Milen Strahinski", "The login was unsuccessful!");
     }
 
