@@ -60,10 +60,7 @@ public class Products {
 
         Browser.driver.findElement(By.partialLinkText("Image")).click();
         FindElement.byId(".img-thumbnail");
-//       Browser.driver.findElement(By.cssSelector(".img-thumbnail")).click();
         FindElement.byCssSelector("#button-image");
-//       Browser.driver.findElement(By.cssSelector("#button-image")).click();
-//       Browser.driver.findElement(By.id("button-upload")).click();
         FindElement.byId("button-upload");
 
         StringSelection ss = new StringSelection("D:\\QA\\Automation\\project1\\images\\1.JPG");

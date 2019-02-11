@@ -3,13 +3,13 @@ package backend.pages;
 import org.openqa.selenium.By;
 import utils.Browser;
 
-public class NavigationPages {
+public class FindElement {
 
     /**
      * This method will open a page from a Navigation using CSS Selector
      * @param pageCssSelectors Css Selector for the certain page
      */
-    public static void goToPageWithCssSelector(String pageCssSelectors){
+    public static void byCssSelector(String pageCssSelectors){
         Browser.driver.findElement(By.cssSelector(pageCssSelectors)).click();
     }
 
@@ -17,8 +17,16 @@ public class NavigationPages {
      * This method will open a page from a Navigation using XPath Location
      * @param pagePathLocating XPath Location for the certain page
      */
-    public static void goToPageWithXPathSelector(String pagePathLocating){
+    public static void byXPathSelector(String pagePathLocating){
         Browser.driver.findElement(By.xpath(pagePathLocating)).click();
+    }
+
+    /**
+     * This method will open a page from a Navigation using id
+     * @param pagePathLocating XPath Location for the certain page
+     */
+    public static void byId(String pagePathLocating){
+        Browser.driver.findElement(By.id(pagePathLocating)).click();
     }
 
 

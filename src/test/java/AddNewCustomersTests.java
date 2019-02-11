@@ -29,7 +29,7 @@ public class AddNewCustomersTests {
     @DataProvider
     public Object[][] testData() throws IOException{
         return getTestData(
-                "D:\\QA\\Automation\\project1\\datafile.csv");
+                "D:\\QA\\Automation\\project1\\datafile2.csv");
     }
 
     public String[][]getTestData(String fileName)throws IOException{
@@ -52,8 +52,8 @@ public class AddNewCustomersTests {
     public void addNewCustomers(String groupName, String firstName, String lastName, String email, String phoneNumber,
                                String password, String confPassword, String option1, String option2,
                                String expectedEmail) throws Exception {
-//        AdminLogin.open();
-//        AdminLogin.login("admin", "parola123!");
+        AdminLogin.open();
+        AdminLogin.login("admin", "parola123!");
         Customers.openCustomersPage();
         Customers.addNewCustomers(groupName,firstName, lastName, email, phoneNumber,
                 password, confPassword, option1, option2);
