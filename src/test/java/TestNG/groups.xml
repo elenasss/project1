@@ -1,0 +1,14 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >-->
+<!--<suite name="suite" preserve-order="true">-->
+    <!--<test name="new test">-->
+        <!--<groups>-->
+            <!--<run>-->
+                <!--<exclude name="Smoke"/>-->
+            <!--</run>-->
+        <!--</groups>-->
+        <!--<classes>-->
+            <!--<class name="AdminLoginLogoutTests"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+<!--</suite>-->

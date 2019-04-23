@@ -3,6 +3,8 @@ package backend.pages;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import utils.Browser;
+import utils.Command;
+import utils.Find;
 
 public class AdminDashboard {
 
@@ -14,8 +16,7 @@ public class AdminDashboard {
      * @param messageOnFailure the message that will appear in the bug report in case of failure
      */
     public static void verifyUserFullName(String expectedUserFullName, String messageOnFailure) {
-        String actualUserFullName = Browser.driver.findElement(By.cssSelector(".navbar-right .dropdown-toggle")).getText();
-
+        String actualUserFullName = Command.getText(Find.byCss(".navbar-right .dropdown-toggle"));
         Assert.assertEquals(actualUserFullName, expectedUserFullName, messageOnFailure);
     }
 }

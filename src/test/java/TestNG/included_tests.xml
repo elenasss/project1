@@ -1,0 +1,21 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >-->
+<!--<suite name="suite" preserve-order="true">-->
+    <!--<test name="new test">-->
+        <!--<classes>-->
+            <!--<class name="AdminLoginLogoutTests">-->
+                <!--<methods>-->
+                    <!--<include name="unsuccessfulLogin"/>-->
+                    <!--<include name="successfulLogin"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name="test2">-->
+        <!--<classes>-->
+            <!--<class name="AdminLoginLogoutTests"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+<!--</suite>-->

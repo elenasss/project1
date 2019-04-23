@@ -1,8 +1,0 @@
-<suite name="Suite1" verbose="1" >
- <test name="AddCustomers">
-    <classes>
-      <!--<class name=""/>-->
-      <!--<class name=""/>-->
-    </classes>
-  </test>
-</suite>

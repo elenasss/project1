@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="14100" started-at="2019-04-22T10:25:35Z" finished-at="2019-04-22T10:25:49Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="14100" started-at="2019-04-22T10:25:35Z" finished-at="2019-04-22T10:25:49Z">
+      <class name="AdminLoginLogoutTests">
+        <test-method status="PASS" signature="setup()[pri:0, instance:AdminLoginLogoutTests@1936f0f5]" name="setup" is-config="true" duration-ms="4534" started-at="2019-04-22T10:25:35Z" finished-at="2019-04-22T10:25:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="adminLogout()[pri:0, instance:AdminLoginLogoutTests@1936f0f5]" name="adminLogout" duration-ms="5243" started-at="2019-04-22T10:25:40Z" finished-at="2019-04-22T10:25:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminLogout -->
+        <test-method status="PASS" signature="successfulLogin()[pri:0, instance:AdminLoginLogoutTests@1936f0f5]" name="successfulLogin" duration-ms="2438" started-at="2019-04-22T10:25:45Z" finished-at="2019-04-22T10:25:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- successfulLogin -->
+        <test-method status="PASS" signature="unsuccessfulLogin()[pri:0, instance:AdminLoginLogoutTests@1936f0f5]" name="unsuccessfulLogin" duration-ms="1222" started-at="2019-04-22T10:25:48Z" finished-at="2019-04-22T10:25:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- unsuccessfulLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:AdminLoginLogoutTests@1936f0f5]" name="tearDown" is-config="true" duration-ms="616" started-at="2019-04-22T10:25:49Z" finished-at="2019-04-22T10:25:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- AdminLoginLogoutTests -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
